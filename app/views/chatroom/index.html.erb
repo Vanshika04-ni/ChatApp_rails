@@ -1,0 +1,60 @@
+<h2 class="ui center aligned icon header">
+  <i class="circular orange coffee icon"></i>
+  Friends
+</h2>
+
+<div class="ui two column grid">
+<div class="twelve wide column">
+  <div class="ui fluid raised card" id="chat">
+  <div class="content" id="c">
+  <div class="ui small feed">
+    <h4 class="ui header">Followers Activity</h4>
+    <% @messages.each do |i| %>
+        <div class="event">
+          <div class="content">
+            <div class="summary">
+           <h3><%= i.user.username %>:<%= i.body %></h3>
+              
+            </div>
+          </div>
+        </div>
+    <% end %>    
+        
+  </div>
+  </div>
+
+  <div class="extra content">
+  <%= form_with scope: :message,url: message_path do |f| %>
+        <div class="field">
+          <%= f.text_field :body %>
+        </div>
+        <div class="ui icon">
+          <%= f.submit 'Send',class: "ui inverted orange button" %> 
+        </div>
+  <% end %>
+
+  </div>
+
+  </div>
+</div>
+
+
+
+<div class="four wide column">
+<div class="ui fluid raised card">
+<div class="content">
+<div class="ui inverted vertical pointing menu">
+  <a class="active item">
+    Home
+  </a>
+  <a class="item">
+    Messages
+  </a>
+  <a class="item">
+    Friends
+  </a>
+</div>
+</div>
+</div>
+</div>
+</div>
